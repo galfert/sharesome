@@ -11,6 +11,8 @@
 RemoteStorage.defineModule('shares', function(privateClient, publicClient) {
 
   var exports = {
+    on: publicClient.on,
+
     /**
      * Method: storeFile
      *
@@ -26,8 +28,8 @@ RemoteStorage.defineModule('shares', function(privateClient, publicClient) {
      *    uploaded file (see <getFileURL>).
      */
     storeFile: function(mimeType, name, data) {
-      var date = this._formattedDate(new Date());
-      name = date + "-" + name;
+      // var date = this._formattedDate(new Date());
+      // name = date + "-" + name;
 
       if (this._isImage(mimeType)) {
         this._storeThumbnail(mimeType, name, data);

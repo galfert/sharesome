@@ -7,9 +7,15 @@ export default Ember.Service.extend({
 
   setup: function() {
     RemoteStorage.WireClient.REQUEST_TIMEOUT = 90000;
+    RemoteStorage.config.changeEvents.window = true;
 
     remoteStorage.access.claim('shares', 'rw');
+    remoteStorage.caching.enable('/shares/');
     remoteStorage.displayWidget({ redirectUri: window.location.href });
+
+    remoteStorage.shares.on('change', (event) => {
+      console.log('change event', event);
+    });
 
     remoteStorage.on('ready', () => {
       console.log('RS ready');
