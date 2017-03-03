@@ -15,13 +15,14 @@ export default Component.extend({
   overlayIsVisible: false,
   url: alias('item.url'),
   name: alias('item.name'),
+  storage: Ember.inject.service(),
 
   isImage: function() {
     return this.get('url').match(/(jpg|jpeg|png|gif|webp)$/i);
   }.property('url'),
 
   thumbnailUrl: function() {
-    return remoteStorage.shares.getThumbnailURL(this.get('name'));
+    return this.get('storage').getThumbnailURL(this.get('name'));
   }.property('name'),
 
   itemStyle: function() {
@@ -65,7 +66,7 @@ export default Component.extend({
     remove: function() {
       this.set('item.isDeleting', true);
 
-      remoteStorage.shares.remove(this.get('name')).then(
+      this.get('storage').removeShare(this.get('name')).then(
         () => {
           this.sendAction('removeItem', this.get('item'));
         },

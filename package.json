@@ -24,6 +24,7 @@
     "bower": "^1.7.7",
     "broccoli-asset-rev": "^2.4.5",
     "ember-ajax": "^2.4.1",
+    "ember-browserify": "^1.1.13",
     "ember-cli": "2.11.1",
     "ember-cli-app-version": "^2.0.0",
     "ember-cli-babel": "^5.1.7",
@@ -42,9 +43,13 @@
     "ember-export-application-global": "^1.0.5",
     "ember-load-initializers": "^0.6.0",
     "ember-moment": "^6.0.0",
+    "ember-polyfill-for-tests": "0.2.0",
     "ember-resolver": "^2.0.3",
     "ember-source": "~2.11.0",
-    "loader.js": "^4.0.10"
+    "loader.js": "^4.0.10",
+    "remotestorage-widget": "remotestorage/remotestorage-widget#e7f8004d764df2",
+    "remotestoragejs": "remotestorage/remotestorage.js#c9569b7217f4",
+    "remotestorage-module-shares": "galfert/remotestorage-module-shares#e729d3b20c"
   },
   "engines": {
     "node": ">=5.0.0",

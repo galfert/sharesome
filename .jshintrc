@@ -2,9 +2,7 @@
   "predef": [
     "document",
     "window",
-    "-Promise",
-    "RemoteStorage",
-    "remoteStorage"
+    "-Promise"
   ],
   "browser": true,
   "boss": true,

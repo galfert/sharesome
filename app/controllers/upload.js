@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
 
   file: null,
   isUploading: false,
+  storage: Ember.inject.service(),
 
   hasFileToUpload: function() {
     return this.get('file') !== null;
@@ -69,7 +70,7 @@ export default Ember.Controller.extend({
       let file = this.get('file');
       this.set('isUploading', true);
 
-      remoteStorage.shares.storeFile(file.get('type'), file.get('name'), file.get('binary')).then(url => {
+      this.get('storage').storeFile(file.get('type'), file.get('name'), file.get('binary')).then(url => {
         this.setProperties({
           file: null,
           isUploading: false
