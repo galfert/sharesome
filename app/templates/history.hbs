@@ -2,6 +2,7 @@
   <ul>
     {{#each sortedModel as |item|}}
       {{history-item item=item removeItem="removeItem"}}
+      {{#link-to 'show' item.id}}Download item{{/link-to}}
     {{/each}}
   </ul>
 </section>

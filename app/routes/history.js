@@ -21,9 +21,16 @@ export default Route.extend({
       let shares = [];
 
       filenames.forEach((filename) => {
+        let url;
+        try {
+          url = this.get('rs').shares.getFileURL(filename)
+        } catch(error) {
+          url = '';
+        }
         let item = EmberObject.create({
+          id: filename,
           name: filename,
-          url: this.get('rs').shares.getFileURL(filename),
+          url: url,
           isDeleting: false
         });
         shares.pushObject(item);
