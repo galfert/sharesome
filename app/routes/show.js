@@ -15,7 +15,7 @@ export default Route.extend({
   },
 
   model(params) {
-    return this.get('rs').shares.client.getFile(params.item_id).then((file) => console.log('file', file));
+    return this.get('rs').scope('/public/shares/').getFile(params.item_id).then((file) => console.log('file', file));
   }
 
 });
