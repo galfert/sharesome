@@ -18,6 +18,11 @@ export default Service.extend({
       modules: [Shares.default]
     });
 
+    remoteStorage.setApiKeys({
+      dropbox: 'vummouvf64zmv39',
+      googledrive: '244390611892-um9tdv8pklk6nq9k3387n8buil0d6poe.apps.googleusercontent.com'
+    });
+
     remoteStorage.access.claim('shares', 'rw');
 
     remoteStorage.on('ready', () => {
